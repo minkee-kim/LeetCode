@@ -1,22 +1,21 @@
 
 class Solution {
     public int maxProfit(int[] prices) {
-
-        // 1. 가장 작은 값과 return 값을 설정해주어야 함 ()
-        int min = Integer.MAX_VALUE;
-        int maxReturn = Integer.MIN_VALUE;
+        // 작은 값과 return 해줄 max값이 필요
+        // 루프를 돌리면서 계속 값을 비교하며 업데이트해야 함.
+        int min = prices[0];
+        int max = 0;
         
-        //2. 루프를 돌리면서 작은 값과 return 값을 계속 변경해주어야함
-        for(int price : prices) {
-            //3. min 값은 Math.min을 사용해서 변경 해주자.
-            min = Math.min(min, price);
-            //4. maxReturn 값은, 최대 이득을 나타내야함
-            // min값은 배열에서 가장 작은 값으로 설정됨
-            // 따라서 현재 price에서 min을 뺀 값을 maxReturn에 주면됨
-            // maxReturn은 최대 이득을 나타내줌.
-            maxReturn = Math.max(maxReturn, price-min );
+        // min은 prices[i] 보다 작다면 그 값으로 변경해야 한다.
+        // prices[i]-min과 max 중 더 큰 값을 찾는 이유는 결국 최대 이윤을 찾아야 하기 때문.
+        // prices[i]-min 중 최대값이 최대 이윤이다. 
+    
+        for(int i=1,j=prices.length; i<j; i++) {
+            if(prices[i] < min ) {
+                min = prices[i];
+            } max = Math.max(max, prices[i]-min);
         }
-        return maxReturn;
+        return max;
         
     }
 }
