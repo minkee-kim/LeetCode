@@ -18,7 +18,7 @@ class Solution {
             }
                         if (stack.isEmpty()== true) 
                 return false;
-                            
+
             if (pa==')' && stack.peek() =='(')  {
                 stack.pop();
                 continue;
