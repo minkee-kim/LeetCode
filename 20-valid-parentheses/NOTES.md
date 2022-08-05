@@ -7,8 +7,10 @@
 만약 stack의 크기가 0인 상태에서 stack에서 값을 빼야하면 EmptyStackException이 발생할 수 있기 때문에 매 루프마다 stack의 크기를 확인하고
 stack 크기가 0이라면 바로 false를 반환해야함.
 
-
 */
+
+
+
 public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] parenthesis = s.toCharArray();
@@ -48,5 +50,5 @@ public boolean isValid(String s) {
         }
 
         return stack.isEmpty();
-
     }
+        }
