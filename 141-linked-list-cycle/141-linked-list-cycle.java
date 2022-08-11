@@ -30,16 +30,29 @@ public class Solution {
         // fast 포인터는 두 칸씩 움직이고 slow 포인터는 한 칸씩 움직인다.
         // 링크드 리스트에 사이클이 형성되면 두 개의 포인터는 언젠가 만날 수밖에 없다. 
         
-        ListNode fast = head;
-        ListNode slow = head;
+//         ListNode fast = head;
+//         ListNode slow = head;
         
-        while(fast!=null && fast.next!=null) {
-            slow=slow.next;
-            fast=fast.next.next;
-            if(slow==fast) return true;
+//         while(fast!=null && fast.next!=null) {
+//             slow=slow.next;
+//             fast=fast.next.next;
+//             if(slow==fast) return true;
+//         }
+        
+        
+//         return false;
+        
+        if (head==null || head.next==null) {
+            return false;
         }
         
-        
-        return false;
+        ListNode a = head;
+        ListNode b = head.next;
+        while(a!=b) {
+            if(b==null || b.next == null) return false;
+            a=a.next;
+            b=b.next.next;
+        }
+        return true;
     }
 }
